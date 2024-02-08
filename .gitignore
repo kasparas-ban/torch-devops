@@ -1,0 +1,7 @@
+torch-server-keypair.pem
+torch-server-keypair.pub
+.env
+.terraform
+.terraform.lock.hcl
+terraform.tfstate.backup
+terraform.tfstate
