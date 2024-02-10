@@ -4,6 +4,18 @@ variable "region" {
   default     = "eu-central-1"
 }
 
+variable "db_username" {
+  description = "Username for the RDS database"
+  type        = string
+  sensitive   = true
+}
+
+variable "db_password" {
+  description = "Passowrd for the RDS database"
+  type        = string
+  sensitive   = true
+}
+
 variable "personal_ip" {
   description = "The personal IP address to allow SSH access from to EC2 instance"
   type        = string
@@ -19,24 +31,6 @@ variable "vpc_name" {
   description = "Value of the name for the VPC"
   type        = string
   default     = "torch_vpc"
-}
-
-variable "subnet_name" {
-  description = "Name of the subnet for the VPC"
-  type        = string
-  default     = "torch_pub_subnet"
-}
-
-variable "igw_name" {
-  description = "Name of the Internet Gateway for the VPC"
-  type        = string
-  default     = "torch_igw"
-}
-
-variable "pub_rt_name" {
-  description = "Name of the public Route Table for the VPC"
-  type        = string
-  default     = "torch_rt"
 }
 
 variable "ec2_ami" {

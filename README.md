@@ -48,3 +48,7 @@ Type `yes` to confirm the destruction of resources.
 
 </li>
 </ol>
+
+Apply Terraform configurations with
+
+    terraform apply -var-file="secret.tfvars"
