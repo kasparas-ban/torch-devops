@@ -21,6 +21,11 @@ variable "personal_ip" {
   type        = string
 }
 
+variable "ssl_certificate_arn" {
+  description = "ARN of the SSL certificate from the AWS Certificate Manager"
+  type        = string
+}
+
 variable "vpc_ipv4_cidr" {
   description = "Value of the IPv4 CIDR range for the VPC"
   type        = string
@@ -31,12 +36,6 @@ variable "vpc_name" {
   description = "Value of the name for the VPC"
   type        = string
   default     = "torch_vpc"
-}
-
-variable "ec2_ami" {
-  description = "Value of the AMI ID for the EC2 instance"
-  type        = string
-  default     = "ami-03614aa887519d781"
 }
 
 variable "ec2_name" {

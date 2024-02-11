@@ -19,6 +19,15 @@ Before using this Terraform configuration, make sure you have the following prer
     ssh-keygen -t rsa -b 2048 -f torch-server-keypair
 
 </li>
+<li>
+<strong>Add <code>secret.tfvars</code> file:</strong> <code>secret.tfvars</code> file stores sensitive data related to Terraform configuration. An example file should look like this:
+
+    db_username = "root" // Database username
+    db_password = "123o3p72V9876AP8U00" // Database password
+    personal_ip = "72.51.2.111/32" // Your own personal IP address. This is used so that you could ssh to EC2/RDS through your own machine
+    ssl_certificate_arn = "arn:aws:acm:eu-north-1:073346272233:certificate/542bf11b-aac2-999d-nn65-e2b61083sd8i" // SSL certificate from the AWS Certificate Manager
+
+</li>
 </ol>
 
 ### Usage
@@ -33,7 +42,9 @@ Before using this Terraform configuration, make sure you have the following prer
 <li>
 <strong>Apply Configuration:</strong> Create the resources based on the configuration:
 
-    terraform apply
+    terraform apply -var-file="secret.tfvars"
+
+Type `yes` to confirm the action.
 
 </li>
 <li>
@@ -42,13 +53,9 @@ Before using this Terraform configuration, make sure you have the following prer
 <li>
 <strong>Destroy Resources:</strong> After you're done using the resources, you can destroy them to avoid incurring unnecessary charges:
 
-    terraform destroy
+    terraform destroy -var-file="secret.tfvars"
 
 Type `yes` to confirm the destruction of resources.
 
 </li>
 </ol>
-
-Apply Terraform configurations with
-
-    terraform apply -var-file="secret.tfvars"
