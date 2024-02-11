@@ -1,6 +1,8 @@
 # Torch AWS Terraform Configuration
 
-This Terraform configuration sets up an API server on AWS using EC2 instances, RDS database, VPC, subnet, internet gateway, and security groups. The API server is configured to allow SSH connections only from a specified IP address and HTTPS traffic from anywhere.
+This Terraform configuration sets up an API server on AWS using EC2 instances, RDS database, Application Load Balancer, VPC, subnets, internet gateway, and security groups. The API server is configured to allow SSH connections only from a specified IP address and HTTPS traffic from anywhere.
+
+![AWS configuration diagram](./torch-devops-diagram.png)
 
 ### Prerequisites
 
@@ -16,8 +18,11 @@ Before using this Terraform configuration, make sure you have the following prer
 <li>
 <strong>SSH Key Pair:</strong> Generate an SSH key pair that will be used to connect to the EC2 instances. You can generate an SSH key pair using ssh-keygen:
 
-    ssh-keygen -t rsa -b 2048 -f torch-server-keypair
+    ssh-keygen -t rsa -b 2048 -f torch_server_keypair
 
+</li>
+<li>
+<strong>SSL certificate:</strong> For HTTPS you'll need to have a valid SSL certificate in your AWS Certificate manager.
 </li>
 <li>
 <strong>Add <code>secret.tfvars</code> file:</strong> <code>secret.tfvars</code> file stores sensitive data related to Terraform configuration. An example file should look like this:
