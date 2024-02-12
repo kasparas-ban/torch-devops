@@ -194,6 +194,7 @@ resource "aws_instance" "torch_server" {
               sudo apt update && sudo apt upgrade -y
               wget https://go.dev/dl/go1.22.0.linux-amd64.tar.gz && sudo tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz
               sudo sh -c 'echo "PATH=$PATH:/usr/local/go/bin" >> /etc/environment'
+              curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash && sudo NEW_RELIC_API_KEY=${var.new_relic_api_key} NEW_RELIC_ACCOUNT_ID=${var.new_relic_account_id} NEW_RELIC_REGION=${var.new_relic_region} /usr/local/bin/newrelic install -n logs-integration
               EOF
 
   tags = {

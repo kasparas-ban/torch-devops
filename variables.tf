@@ -43,3 +43,23 @@ variable "ec2_name" {
   type        = string
   default     = "torch_server"
 }
+
+# New Relic
+
+variable "new_relic_api_key" {
+  description = "New Relic API key"
+  type        = string
+  sensitive   = true
+}
+
+variable "new_relic_account_id" {
+  description = "New Relic account ID"
+  type        = string
+  sensitive   = true
+}
+
+variable "new_relic_region" {
+  description = "New Relic region"
+  type        = string
+  sensitive   = true
+}
