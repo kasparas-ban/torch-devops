@@ -32,6 +32,8 @@ Before using this Terraform configuration, make sure you have the following prer
     personal_ip = "72.51.2.111/32" // Your own personal IP address. This is used so that you could ssh to EC2/RDS through your own machine
     ssl_certificate_arn = "arn:aws:acm:eu-north-1:073346272233:certificate/542bf11b-aac2-999d-nn65-e2b61083sd8i" // SSL certificate from the AWS Certificate Manager
 
+Note that personal IP address should be copied from the way it appears in the AWS Web Console. Try to create a new EC2 instance, there will be an option to allow SSH traffic through your own address - copy this address.
+
 </li>
 </ol>
 

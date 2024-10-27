@@ -176,7 +176,7 @@ resource "aws_db_instance" "torch_database" {
 # EC2 key pair
 resource "aws_key_pair" "torch_server_keypair" {
   key_name   = "torch_server_keypair"
-  public_key = file("./torch-server-keypair.pub")
+  public_key = file("./torch_server_keypair.pub")
 }
 
 # EC2
